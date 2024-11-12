@@ -16,8 +16,11 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->enum('akses', ['admin', 'wali', 'operator']);
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
+            $table->string('nohp');
+            $table->timestamp('nohp_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
