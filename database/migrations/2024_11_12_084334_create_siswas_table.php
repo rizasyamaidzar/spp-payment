@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('jurusan');
             $table->string('kelas');
             $table->integer('angkatan');
+            $table->string('foto');
             $table->foreignId('user_id');
             $table->timestamps();
         });

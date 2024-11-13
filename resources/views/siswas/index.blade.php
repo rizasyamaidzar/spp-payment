@@ -16,9 +16,9 @@
 
             <div class="table-responsive text-nowrap">
                 <div class="d-flex align-items-center gap-2 m-3">
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#largeModal">
-                        Add Wali
-                    </button>
+                    <a type="button" class="btn btn-primary" href="{{ route('operator.siswa.create') }}">
+                        Add Siswa
+                    </a>
                     <div class="input-group">
                         <input type="text" class="form-control" placeholder="Search Wali" aria-label="Search Wali"
                             aria-describedby="button-addon2" />
@@ -38,15 +38,15 @@
                         </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
-                        @foreach ($users as $user)
+                        @foreach ($siswas as $item)
                             <tr>
                                 <td><i class="fab fa-angular fa-lg text-danger me-3"></i> {{ $loop->iteration }}</td>
                                 <td><i class="fab fa-angular fa-lg text-danger me-3"></i>
-                                    <strong>{{ $user->name }}</strong>
+                                    <strong>{{ $item->name }}</strong>
                                 </td>
-                                <td>{{ $user->nohp }}</td>
-                                <td>{{ $user->email }}</td>
-                                <td>{{ $user->akses }}</td>
+                                <td>{{ $item->nohp }}</td>
+                                <td>{{ $item->email }}</td>
+                                <td>{{ $item->akses }}</td>
                                 {{-- <td><span class="badge bg-label-primary me-1">Active</span></td> --}}
                                 <td>
                                     <div class="dropdown">
@@ -56,11 +56,11 @@
                                         </button>
                                         <div class="dropdown-menu">
                                             <a class="dropdown-item" href="javascript:void(0);" data-bs-toggle="modal"
-                                                data-bs-target="#largeModalEdit{{ $user->id }}"><i
+                                                data-bs-target="#largeModalEdit{{ $item->id }}"><i
                                                     class="bx bx-edit-alt me-1"></i>
                                                 Edit</a>
                                             <a class="dropdown-item" href="javascript:void(0);" data-bs-toggle="modal"
-                                                data-bs-target="#largeModalDelete{{ $user->id }}"><i
+                                                data-bs-target="#largeModalDelete{{ $item->id }}"><i
                                                     class="bx bx-trash me-1"></i>
                                                 Delete</a>
                                         </div>
@@ -72,7 +72,7 @@
                         @endforeach
                     </tbody>
                 </table>
-                {!! $users->links() !!}
+                {!! $siswas->links() !!}
             </div>
         </div>
         <!--/ Basic Bootstrap Table -->

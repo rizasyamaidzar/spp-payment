@@ -76,6 +76,12 @@
                 <div data-i18n="Basic">Data Wali Murid</div>
             </a>
         </li>
+        <li class="menu-item {{ \Route::is('operator.siswa.*') ? 'active' : '' }}">
+            <a href="{{ route('operator.siswa.index') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-collection"></i>
+                <div data-i18n="Basic">Data Siswa</div>
+            </a>
+        </li>
 
         <!-- Layouts -->
         <li class="menu-item">

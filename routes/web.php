@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Operator\BerandaOperator;
+use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WaliController;
 
@@ -42,6 +43,12 @@ Route::prefix('operator')->middleware(['auth', 'auth.operator'])->group(function
     Route::post('/wali', [WaliController::class, 'store'])->name('operator.wali.store');
     Route::post('/wali/update', [WaliController::class, 'update'])->name('operator.wali.update');
     Route::post('/wali/delete', [WaliController::class, 'delete'])->name('operator.wali.delete');
+    // Siswa
+    Route::get('/siswa', [SiswaController::class, 'index'])->name('operator.siswa.index');
+    Route::get('/siswa/create', [SiswaController::class, 'create'])->name('operator.siswa.create');
+    Route::post('/siswa', [SiswaController::class, 'store'])->name('operator.siswa.store');
+    Route::post('/siswa/update', [SiswaController::class, 'update'])->name('operator.siswa.update');
+    Route::post('/siswa/delete', [SiswaController::class, 'delete'])->name('operator.siswa.delete');
 });
 Route::prefix('wali')->middleware(['auth', 'auth.wali'])->group(function () {
     Route::get('beranda', [BerandaOperator::class, 'index'])->name('wali.beranda');

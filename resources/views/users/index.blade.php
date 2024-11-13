@@ -13,10 +13,21 @@
 
         <div class="card">
             <h5 class="card-header">Table Basic</h5>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#largeModal">
-                Tambah User
-            </button>
+
             <div class="table-responsive text-nowrap">
+                <div class="d-flex align-items-center gap-2 m-3">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#largeModal">
+                        Add User
+                    </button>
+
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search User" aria-label="Search User"
+                            aria-describedby="button-addon2" />
+                        <button class="btn btn-outline-primary" type="button" id="button-addon2"><i
+                                class="bx bx-search"></i></button>
+                    </div>
+                </div>
+
                 <table class="table">
                     <thead>
                         <tr>

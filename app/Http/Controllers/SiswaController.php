@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Middleware\Wali;
 use App\Models\Siswa;
-use App\Http\Requests\StoreSiswaRequest;
-use App\Http\Requests\UpdateSiswaRequest;
+use Illuminate\Http\Request;
+use App\Models\User;
 
 class SiswaController extends Controller
 {
@@ -16,6 +17,10 @@ class SiswaController extends Controller
     public function index()
     {
         //
+        $siswa = Siswa::latest()->paginate(50);
+        return view('siswas.index', [
+            'siswas' => $siswa
+        ]);
     }
 
     /**
@@ -26,6 +31,10 @@ class SiswaController extends Controller
     public function create()
     {
         //
+        $wali = User::where('akses', 'wali')->get();
+        return view('siswas.create', [
+            'wali' => $wali
+        ]);
     }
 
     /**
@@ -34,9 +43,11 @@ class SiswaController extends Controller
      * @param  \App\Http\Requests\StoreSiswaRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreSiswaRequest $request)
+    public function store(Request $request)
     {
         //
+
+        dd($request->all());
     }
 
     /**
@@ -68,7 +79,7 @@ class SiswaController extends Controller
      * @param  \App\Models\Siswa  $siswa
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateSiswaRequest $request, Siswa $siswa)
+    public function update(Request $request, Siswa $siswa)
     {
         //
     }
